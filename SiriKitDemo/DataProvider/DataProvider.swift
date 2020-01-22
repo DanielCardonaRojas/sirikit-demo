@@ -9,8 +9,8 @@
 import Foundation
 
 let defaultTasks: [Task] = [
-    Task(title: "Read SwiftUI Documentation 📚", isDone: false),
-    Task(title: "Watch WWDC19 Keynote 🎉", isDone: true),
+    Task(id: UUID(), title: "Read SwiftUI Documentation 📚", isDone: false),
+    Task(id: UUID(), title: "Watch WWDC19 Keynote 🎉", isDone: true),
 ]
 
 final class DataProvider {

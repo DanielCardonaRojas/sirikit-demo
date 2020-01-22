@@ -34,21 +34,13 @@ class ListPresenter {
 
     // MARK: - Helpers
 
-    func addTask(title: String, isDone: Bool = false) {
-        let task = Task(title: title, isDone: isDone)
-        let index = dataProvider.tasks.count
-        dataProvider.tasks.append(task)
-
-        view?.didInsertNewTask(at: index)
-    }
-
     func deleteTask(at index: Int) {
         dataProvider.tasks.remove(at: index)
 
         view?.didDeleteTask(at: index)
     }
 
-    func markTaskAsDone(at index: Int) {
+    func toggleTask(at index: Int) {
         dataProvider.tasks[index].isDone.toggle()
 
         view?.didUpdateTask(at: index)
@@ -56,5 +48,17 @@ class ListPresenter {
 
     func getTask(at index: Int) -> Task {
         return dataProvider.tasks[index]
+    }
+
+    func saveTask(_ task: Task) {
+        if let index = dataProvider.tasks.firstIndex(where: { $0.id == task.id }) {
+            dataProvider.tasks[index].title = task.title
+            view?.didUpdateTask(at: index)
+        } else {
+            let index = dataProvider.tasks.count
+            dataProvider.tasks.append(task)
+
+            view?.didInsertNewTask(at: index)
+        }
     }
 }

@@ -9,7 +9,7 @@
 import Foundation
 
 struct Task: Codable, Equatable {
-    let id = UUID()
+    let id: UUID
     var title: String
     var isDone: Bool
 }

@@ -29,7 +29,7 @@ class ListTableViewController: UITableViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationItem.largeTitleDisplayMode = .always
     }
 
 }
@@ -43,9 +43,12 @@ extension ListTableViewController {
         tableView.register(TaskItemTableViewCell.self, forCellReuseIdentifier: Constants.kTaskItemCellIdentifier)
 
         tableView.tableFooterView = UIView()
+        tableView.allowsSelectionDuringEditing = true
 
         navigationItem.rightBarButtonItem = editBarButton
         navigationItem.leftBarButtonItem = addBarButton
+
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
 
     @objc private func editList() {
@@ -58,7 +61,9 @@ extension ListTableViewController {
     }
 
     @objc private func addTask() {
-
+        let viewController = TaskItemViewController()
+        viewController.delegate = self
+        navigationController?.pushViewController(viewController, animated: true)
     }
 }
 
@@ -66,7 +71,9 @@ extension ListTableViewController {
 
 extension ListTableViewController: ListViewDelegate {
     func didInsertNewTask(at index: Int) {
-
+        let indexPath = IndexPath(row: index, section: 0)
+        tableView.insertRows(at: [indexPath], with: .automatic)
+        tableView.endUpdates()
     }
 
     func didDeleteTask(at index: Int) {
@@ -96,6 +103,8 @@ extension ListTableViewController {
 
         cell.task = presenter.getTask(at: indexPath.row)
 
+        cell.editingAccessoryType = .disclosureIndicator
+
         return cell
     }
 
@@ -104,13 +113,44 @@ extension ListTableViewController {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.beginUpdates()
-        presenter.markTaskAsDone(at: indexPath.row)
+        if tableView.isEditing {
+            let viewController = TaskItemViewController(presenter.getTask(at: indexPath.row))
+            viewController.delegate =  self
+            navigationController?.pushViewController(viewController, animated: true)
+        } else {
+            presenter.toggleTask(at: indexPath.row)
+        }
     }
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         guard editingStyle == .delete else { return }
         tableView.beginUpdates()
         presenter.deleteTask(at: indexPath.row)
+    }
+
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        if tableView.isEditing {
+            return .delete
+        }
+
+        return .none
+    }
+
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        if tableView.isEditing {
+            return true
+        }
+        return false
+    }
+}
+
+// MARK: - TaskItemDelegate
+
+extension ListTableViewController: TaskItemDelegate {
+    func didSaveTask(task: Task) {
+        DispatchQueue.main.asyncAfter(deadline:  .now() + 0.2) {
+            self.tableView.beginUpdates()
+            self.presenter.saveTask(task)
+        }
     }
 }
