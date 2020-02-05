@@ -3,10 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B95A87AD23EB4B7200560028 /* TaskListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95A87AC23EB4B7200560028 /* TaskListView.swift */; };
+		B95A87B023EB508600560028 /* KeypathAutolayout in Frameworks */ = {isa = PBXBuildFile; productRef = B95A87AF23EB508600560028 /* KeypathAutolayout */; };
+		B9B21C6923EB49ED005665F9 /* Vanity in Frameworks */ = {isa = PBXBuildFile; productRef = B9B21C6823EB49ED005665F9 /* Vanity */; };
+		B9B21C6B23EB4A3A005665F9 /* Preview.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9B21C6A23EB4A3A005665F9 /* Preview.storyboard */; };
 		BA1F4F0423D8A0FF00E3A2D2 /* TaskItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1F4F0323D8A0FF00E3A2D2 /* TaskItemTableViewCell.swift */; };
 		BA1F4F0E23D8E01800E3A2D2 /* TaskItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1F4F0D23D8E01800E3A2D2 /* TaskItemViewController.swift */; };
 		BA1F4F1123D8E03400E3A2D2 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1F4F1023D8E03400E3A2D2 /* BaseViewController.swift */; };
@@ -15,7 +19,7 @@
 		BA6A305123D88CA500CBD6BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6A305023D88CA500CBD6BF /* AppDelegate.swift */; };
 		BA6A305A23D88CA700CBD6BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA6A305923D88CA700CBD6BF /* Assets.xcassets */; };
 		BA6A305D23D88CA700CBD6BF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA6A305B23D88CA700CBD6BF /* LaunchScreen.storyboard */; };
-		BA6A306A23D8926B00CBD6BF /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6A306923D8926B00CBD6BF /* ListTableViewController.swift */; };
+		BA6A306A23D8926B00CBD6BF /* TaskListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6A306923D8926B00CBD6BF /* TaskListViewController.swift */; };
 		BA6A306C23D892AB00CBD6BF /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6A306B23D892AB00CBD6BF /* Task.swift */; };
 		BA6A306E23D892EE00CBD6BF /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6A306D23D892EE00CBD6BF /* DataProvider.swift */; };
 		BA6A307123D893BB00CBD6BF /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6A307023D893BB00CBD6BF /* UserDefaults.swift */; };
@@ -24,6 +28,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B95A87AC23EB4B7200560028 /* TaskListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListView.swift; sourceTree = "<group>"; };
+		B9B21C6A23EB4A3A005665F9 /* Preview.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Preview.storyboard; sourceTree = "<group>"; };
 		BA1F4F0323D8A0FF00E3A2D2 /* TaskItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskItemTableViewCell.swift; sourceTree = "<group>"; };
 		BA1F4F0D23D8E01800E3A2D2 /* TaskItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskItemViewController.swift; sourceTree = "<group>"; };
 		BA1F4F1023D8E03400E3A2D2 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -34,7 +40,7 @@
 		BA6A305923D88CA700CBD6BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BA6A305C23D88CA700CBD6BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BA6A305E23D88CA700CBD6BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BA6A306923D8926B00CBD6BF /* ListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
+		BA6A306923D8926B00CBD6BF /* TaskListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewController.swift; sourceTree = "<group>"; };
 		BA6A306B23D892AB00CBD6BF /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		BA6A306D23D892EE00CBD6BF /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
 		BA6A307023D893BB00CBD6BF /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
@@ -47,12 +53,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B95A87B023EB508600560028 /* KeypathAutolayout in Frameworks */,
+				B9B21C6923EB49ED005665F9 /* Vanity in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B95A87AB23EB4B4900560028 /* TaskListView */ = {
+			isa = PBXGroup;
+			children = (
+				BA6A306923D8926B00CBD6BF /* TaskListViewController.swift */,
+				B95A87AC23EB4B7200560028 /* TaskListView.swift */,
+			);
+			path = TaskListView;
+			sourceTree = "<group>";
+		};
 		BA1F4F0F23D8E02700E3A2D2 /* Base */ = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +122,7 @@
 				BA6A306523D8923C00CBD6BF /* Presenter */,
 				BA6A306F23D893A000CBD6BF /* Utils */,
 				BA6A306623D8924300CBD6BF /* View */,
+				B9B21C6A23EB4A3A005665F9 /* Preview.storyboard */,
 			);
 			path = SiriKitDemo;
 			sourceTree = "<group>";
@@ -131,7 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				BA1F4F1523D8E0E900E3A2D2 /* TaskItemView */,
-				BA6A306923D8926B00CBD6BF /* ListTableViewController.swift */,
+				B95A87AB23EB4B4900560028 /* TaskListView */,
 				BA1F4F0323D8A0FF00E3A2D2 /* TaskItemTableViewCell.swift */,
 			);
 			path = View;
@@ -179,6 +197,10 @@
 			dependencies = (
 			);
 			name = SiriKitDemo;
+			packageProductDependencies = (
+				B9B21C6823EB49ED005665F9 /* Vanity */,
+				B95A87AF23EB508600560028 /* KeypathAutolayout */,
+			);
 			productName = SiriKitDemo;
 			productReference = BA6A304D23D88CA500CBD6BF /* SiriKitDemo.app */;
 			productType = "com.apple.product-type.application";
@@ -207,6 +229,10 @@
 				Base,
 			);
 			mainGroup = BA6A304423D88CA500CBD6BF;
+			packageReferences = (
+				B9B21C6723EB49ED005665F9 /* XCRemoteSwiftPackageReference "Vanity" */,
+				B95A87AE23EB508600560028 /* XCRemoteSwiftPackageReference "KeyPathAutoLayout" */,
+			);
 			productRefGroup = BA6A304E23D88CA500CBD6BF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -223,6 +249,7 @@
 			files = (
 				BA6A305D23D88CA700CBD6BF /* LaunchScreen.storyboard in Resources */,
 				BA6A305A23D88CA700CBD6BF /* Assets.xcassets in Resources */,
+				B9B21C6B23EB4A3A005665F9 /* Preview.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,12 +261,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA6A307523D896A300CBD6BF /* ListPresenter.swift in Sources */,
-				BA6A306A23D8926B00CBD6BF /* ListTableViewController.swift in Sources */,
+				BA6A306A23D8926B00CBD6BF /* TaskListViewController.swift in Sources */,
 				BA6A307123D893BB00CBD6BF /* UserDefaults.swift in Sources */,
 				BA1F4F0423D8A0FF00E3A2D2 /* TaskItemTableViewCell.swift in Sources */,
 				BA6A306C23D892AB00CBD6BF /* Task.swift in Sources */,
 				BA1F4F1123D8E03400E3A2D2 /* BaseViewController.swift in Sources */,
 				BA1F4F1723D8E10000E3A2D2 /* TaskItemView.swift in Sources */,
+				B95A87AD23EB4B7200560028 /* TaskListView.swift in Sources */,
 				BA1F4F1423D8E0C700E3A2D2 /* UIViewController+Extensions.swift in Sources */,
 				BA1F4F0E23D8E01800E3A2D2 /* TaskItemViewController.swift in Sources */,
 				BA6A306E23D892EE00CBD6BF /* DataProvider.swift in Sources */,
@@ -434,6 +462,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B95A87AE23EB508600560028 /* XCRemoteSwiftPackageReference "KeyPathAutoLayout" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/DanielCardonaRojas/KeyPathAutoLayout";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.2;
+			};
+		};
+		B9B21C6723EB49ED005665F9 /* XCRemoteSwiftPackageReference "Vanity" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/DanielCardonaRojas/Vanity";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B95A87AF23EB508600560028 /* KeypathAutolayout */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B95A87AE23EB508600560028 /* XCRemoteSwiftPackageReference "KeyPathAutoLayout" */;
+			productName = KeypathAutolayout;
+		};
+		B9B21C6823EB49ED005665F9 /* Vanity */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B9B21C6723EB49ED005665F9 /* XCRemoteSwiftPackageReference "Vanity" */;
+			productName = Vanity;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BA6A304523D88CA500CBD6BF /* Project object */;
 }

@@ -47,13 +47,11 @@ class TaskItemViewController: BaseViewController<TaskItemView> {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        self.navigationItem.largeTitleDisplayMode = .never
     }
 
 }
 
 // MARK: - Herlpers
-
 extension TaskItemViewController {
     @objc private func save() {
         if self.task != nil {
@@ -68,6 +66,7 @@ extension TaskItemViewController {
     }
 
     private func setupUI() {
+        view.backgroundColor = .white
         if let task = self.task {
             customView.label.text = "Edit Task"
             customView.textView.text = task.title
@@ -76,5 +75,6 @@ extension TaskItemViewController {
         }
 
         navigationItem.rightBarButtonItem = saveButton
+        customView.addButton.addTarget(self, action: #selector(save), for: .touchUpInside)
     }
 }

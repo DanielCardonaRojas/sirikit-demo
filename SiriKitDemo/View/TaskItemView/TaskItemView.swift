@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import KeypathAutolayout
 
+@IBDesignable
 class TaskItemView: UIView {
 
     // MARK: - UI Components
-
     lazy var label: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -34,12 +35,20 @@ class TaskItemView: UIView {
         return textView
     }()
 
+    lazy var addButton: UIButton = {
+        let btn = UIButton()
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.setTitle("Add", for: .normal)
+        btn.setTitleColor(.black, for: .normal)
+        return btn
+    }()
+
     // MARK: - Initializer
 
     override init(frame: CGRect) {
         super.init(frame: frame)
 
-        setupUI()
+        configureLayout()
     }
 
     required init?(coder: NSCoder) {
@@ -48,19 +57,17 @@ class TaskItemView: UIView {
 
     // MARK:- Helpers
 
-    private func setupUI() {
+    private func configureLayout() {
         addSubview(label)
         addSubview(textView)
+        addSubview(addButton)
 
-        NSLayoutConstraint.activate([
-            label.topAnchor.constraint(equalTo: readableContentGuide.topAnchor, constant: 8),
-            label.leftAnchor.constraint(equalTo: leftAnchor, constant: 16),
-            label.rightAnchor.constraint(equalTo: rightAnchor, constant: -16),
-
-            textView.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 16),
-            textView.leftAnchor.constraint(equalTo: leftAnchor, constant: 16),
-            textView.rightAnchor.constraint(equalTo: rightAnchor, constant: -16),
-            textView.heightAnchor.constraint(equalTo: textView.widthAnchor, multiplier: 0.8)
-        ])
+        NSLayoutConstraint.activate {
+            label.relativeTo(self, positioned: .safeTop(margin: 8) + .centerX() + .width(constant: -32))
+            textView.relativeTo(label, positioned: .below(spacing: 16) + .width() + .centerX())
+            textView.constrainedBy(.aspectRatio(0.8))
+            addButton.relativeTo(self, positioned: .centerX() + .safeBottom(margin: 16))
+            addButton.constrainedBy(.constantWidth(80))
+        }
     }
 }

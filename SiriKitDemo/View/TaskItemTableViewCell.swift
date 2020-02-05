@@ -75,6 +75,11 @@ class TaskItemTableViewCell: UITableViewCell {
 
         ])
 
+        NSLayoutConstraint.activate {
+            titleLabel.relativeTo(self, positioned: .centerX())
+        }
+
+
     }
 
 }

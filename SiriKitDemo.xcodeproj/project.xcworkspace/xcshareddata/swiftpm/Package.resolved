@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "KeypathAutolayout",
+        "repositoryURL": "https://github.com/DanielCardonaRojas/KeyPathAutoLayout",
+        "state": {
+          "branch": null,
+          "revision": "074bdd5ecf670963f2e28b7408b9bf648a733bea",
+          "version": "1.0.2"
+        }
+      },
+      {
+        "package": "Vanity",
+        "repositoryURL": "https://github.com/DanielCardonaRojas/Vanity",
+        "state": {
+          "branch": null,
+          "revision": "a71e7a52d39b45d5b7977c0465c3bee165a13065",
+          "version": "1.1.2"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

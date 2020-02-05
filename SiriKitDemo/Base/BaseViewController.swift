@@ -27,7 +27,7 @@ class BaseViewController<View: UIView>: UIViewController {
     }
 
     override func loadView() {
-        view = View(frame: UIScreen.main.bounds)
+        view = View()
     }
 
 }
