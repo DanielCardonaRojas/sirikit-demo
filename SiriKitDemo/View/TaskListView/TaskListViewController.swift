@@ -11,7 +11,6 @@ import UIKit
 class TaskListViewController: BaseViewController<TaskListView> {
 
     // MARK: - Properties
-
     lazy var presenter = ListPresenter(self)
 
     // MARK: - LifeCycle
@@ -20,8 +19,8 @@ class TaskListViewController: BaseViewController<TaskListView> {
         customView.delegate = self
         customView.tableView.delegate = self
         customView.tableView.dataSource = self
-        customView.tableView.register(TaskItemTableViewCell.self, forCellReuseIdentifier: Constants.kTaskItemCellIdentifier)
     }
+
 }
 
 // MARK: - TaskListViewDelegate
@@ -65,7 +64,7 @@ extension TaskListViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.kTaskItemCellIdentifier, for: indexPath) as? TaskItemTableViewCell else {
-            fatalError("Wrong cell")
+            return UITableViewCell()
         }
 
         cell.task = presenter.getTask(at: indexPath.row)

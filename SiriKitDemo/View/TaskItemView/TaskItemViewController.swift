@@ -28,8 +28,7 @@ class TaskItemViewController: BaseViewController<TaskItemView> {
 
     init(_ task: Task? = nil) {
         self.task = task
-
-        super.init(nibName: nil, bundle: nil)
+        super.init()
     }
 
     required init?(coder: NSCoder) {
@@ -58,7 +57,7 @@ extension TaskItemViewController {
             self.task?.title = customView.textView.text
             delegate?.didSaveTask(task: task!)
         } else {
-            let task = Task(id: UUID(), title: customView.textView.text, isDone: false)
+            let task = Task(title: customView.textView.text)
             delegate?.didSaveTask(task: task)
         }
 

@@ -63,6 +63,7 @@ class TaskListView: UIView {
     func configureView() {
         configureLayout()
         configureStyles()
+        tableView.register(TaskItemTableViewCell.self, forCellReuseIdentifier: Constants.kTaskItemCellIdentifier)
     }
 
     func configureLayout() {
@@ -103,7 +104,40 @@ class TaskListView: UIView {
     }
 
     override func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
         configureStyles()
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.reloadData()
+        tableView.setNeedsLayout()
     }
 
+}
+
+// MARK: - Preview only
+extension TaskListView: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 4
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = TaskItemTableViewCell()
+        let titles = [
+            "Create something..",
+            "Study something....",
+            "Keep learning swift",
+            "Enhance code quality",
+        ]
+        let randomIndex = Int.random(in: 0..<4)
+        var task = Task(title: titles[randomIndex])
+        task.mark(complete: Bool.random())
+        cell.task = task
+        cell.editingAccessoryType = .disclosureIndicator
+
+        return cell
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 44
+    }
 }

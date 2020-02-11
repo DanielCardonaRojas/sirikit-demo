@@ -11,7 +11,7 @@ import UIKit
 class TaskItemTableViewCell: UITableViewCell {
 
     // MARK: - Properties
-    private lazy var titleLabel: UILabel = {
+    lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .label
@@ -19,7 +19,7 @@ class TaskItemTableViewCell: UITableViewCell {
         return label
     }()
 
-    private lazy var doneIcon: UIImageView = {
+    lazy var doneIcon: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
 
@@ -42,7 +42,7 @@ class TaskItemTableViewCell: UITableViewCell {
         backgroundColor = .clear
         selectionStyle = .none
 
-        setupUI()
+        configureLayout()
     }
 
     required init?(coder: NSCoder) {
@@ -59,27 +59,16 @@ class TaskItemTableViewCell: UITableViewCell {
         doneIcon.image = task.isDone ? UIImage(systemName: "checkmark") : nil
     }
 
-    private func setupUI() {
+    private func configureLayout() {
         contentView.addSubview(titleLabel)
         contentView.addSubview(doneIcon)
 
-        NSLayoutConstraint.activate([
-            titleLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 8),
-            titleLabel.rightAnchor.constraint(equalTo: doneIcon.leftAnchor, constant: -8),
-            titleLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-
-            doneIcon.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -8),
-            doneIcon.heightAnchor.constraint(equalToConstant: 24),
-            doneIcon.widthAnchor.constraint(equalToConstant: 24),
-            doneIcon.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
-
+        NSLayoutConstraint.activating([
+            titleLabel.relativeTo(contentView, positioned: .centerY() + .left(margin: 8)),
+            titleLabel.relativeTo(doneIcon, positioned: .toLeft(spacing: 8)),
+            doneIcon.relativeTo(contentView, positioned: .centerY() + .right(margin: 8)),
+            doneIcon.constrainedBy(.constantHeight(24) + .constantWidth(24))
         ])
-
-        NSLayoutConstraint.activate {
-            titleLabel.relativeTo(self, positioned: .centerX())
-        }
-
-
     }
 
 }

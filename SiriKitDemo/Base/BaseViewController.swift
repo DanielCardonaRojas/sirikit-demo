@@ -11,10 +11,18 @@ import UIKit
 class BaseViewController<View: UIView>: UIViewController {
 
     // MARK: - Properties
+    init() {
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     var customView: View {
         return view as! View
     }
+
 
     // MARK: - LifeCycle
 

@@ -70,4 +70,9 @@ class TaskItemView: UIView {
             addButton.constrainedBy(.constantWidth(80))
         }
     }
+
+    override func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
+        textView.text = "Finish work on ..."
+    }
 }

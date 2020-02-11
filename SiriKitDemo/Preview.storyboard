@@ -10,7 +10,7 @@
         <!--Task List View Controller-->
         <scene sceneID="DIP-Zv-YWI">
             <objects>
-                <viewController id="TdA-eS-StE" customClass="TaskListViewController" customModule="SiriKitDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TaskListViewController" id="TdA-eS-StE" customClass="TaskListViewController" customModule="SiriKitDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LEa-pv-9qa" customClass="TaskListView" customModule="SiriKitDemo" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -25,7 +25,7 @@
         <!--TaskItemViewController-->
         <scene sceneID="0QB-KW-puW">
             <objects>
-                <viewController id="OfX-3y-RBt" userLabel="TaskItemViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TaskItemViewController" id="OfX-3y-RBt" userLabel="TaskItemViewController" customClass="TaskItemViewController" customModule="SiriKitDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hIB-K9-xAR" customClass="TaskItemView" customModule="SiriKitDemo" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
